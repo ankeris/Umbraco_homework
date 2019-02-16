@@ -10,7 +10,6 @@
 **/App_Data/[Pp]review/
 **/App_Data/TEMP/
 **/App_Data/NuGetBackup/
-
 # Ignore Umbraco content cache file
 **/App_Data/umbraco.config
 
@@ -337,7 +336,6 @@ __pycache__/
 
 # Tabs Studio
 *.tss
-
 # Telerik's JustMock configuration file
 *.jmconfig
 
@@ -346,6 +344,7 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
 
 # OpenCover UI analysis results
 OpenCover/
@@ -370,3 +369,4 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+AarhusWebCorp/Web.config
