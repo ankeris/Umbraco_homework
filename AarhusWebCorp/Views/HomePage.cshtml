@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<h3 class="p-2 bg-secondary text-light">@Umbraco.Field("header")</h3>
+<div>@Umbraco.Field("mainContent")</div>
+
+@Umbraco.RenderMacro("projectsSubMenu")

@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Umbraco.Web
+
+@{ IPublishedContent[] projectDropdown = 
+Model.Content.AncestorOrSelf(1)
+.Children
+.Where(x => x.DocumentTypeAlias == "projectsOverview")
+.First()
+.Children
+.Where("Visible")
+.OrderBy("Name").ToArray(); }
+
+<ul>
+        @foreach(IPublishedContent page in projectDropdown) 
+        {
+            <li>@page.Name</li>
+        }
+</ul>
