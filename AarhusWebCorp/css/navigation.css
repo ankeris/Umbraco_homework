@@ -1,0 +1,12 @@
+.nav-dropdown {
+	position: relative;
+}
+.nav-dropdown:hover > .nav-dropdown-children {
+display: initial;
+}
+.nav-dropdown-children {
+	display: none;
+	position: absolute;
+	background: #D3D3D3;
+	width: 200px;
+}

@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{ 
+var documentAlias = Umbraco.Content(Model.MacroParameters["documentAlias"]);
+
+IPublishedContent[] pages = 
+Model.Content.AncestorOrSelf(1)
+.Children
+.Where(x => x.DocumentTypeAlias == documentAlias)
+.First()
+.Children
+.OrderBy("CreateDate desc").ToArray(); }
+
+@foreach(IPublishedContent page in pages) 
+{
+    <li>@page.Name</li>
+}

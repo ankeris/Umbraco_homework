@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Umbraco.Web.Mvc;
 using AarhusWebCorp.ViewModels;
 using System.Net.Mail;
+using Umbraco.Web.Mvc;
+using Umbraco.Core.Models;
 
 namespace AarhusWebCorp.Controllers
 {
@@ -20,6 +21,8 @@ namespace AarhusWebCorp.Controllers
         [HttpPost]
         public ActionResult HandleFormSubmit(ContactForm model)
         {
+            if (!ModelState.IsValid) return CurrentUmbracoPage();
+           
             MailMessage message = new MailMessage();
             message.To.Add("aneke1234@gmail.com");
             message.Subject = model.Subject;
@@ -35,9 +38,20 @@ namespace AarhusWebCorp.Controllers
                 smtp.Port = 587;
                 smtp.Credentials = new System.Net.NetworkCredential("juozas.rastenis@gmail.com", "saknlmqjzhzogesy");
                 // send mail
-                smtp.Send(message);}
+                smtp.Send(message);
+                TempData["success"] = true;
+            }
 
-                return RedirectToCurrentUmbracoPage();
+            IContent msg = Services.ContentService.CreateContent(model.Subject, CurrentPage.Id, "message");
+            msg.SetValue("messageName", model.Name);
+            msg.SetValue("email", model.Email);
+            msg.SetValue("subject", model.Subject);
+            msg.SetValue("messageContent", model.Message);
+
+            // Save
+            Services.ContentService.Save(msg);
+
+            return RedirectToCurrentUmbracoPage();
         }
     }
 }

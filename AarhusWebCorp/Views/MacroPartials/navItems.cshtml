@@ -24,4 +24,9 @@ var selection = site.Children.Where(child => child.IsVisible()).ToArray();
             <a class="nav-link" href="@item.Url">@item.Name</a>
         </li>
     }
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link">Our Projects</a>
+        @Umbraco.RenderMacro("projectsDropdown")
+    </li>
+    
 }

@@ -2,17 +2,16 @@
 
 
 @{ 
-int numOfProjects = Convert.ToUInt16(Model.MacroParameters["numOfProjects"]);
 IPublishedContent[] latestProjects = 
 Model.Content.AncestorOrSelf(1)
 .Children
 .Where(x => x.DocumentTypeAlias == "projectsOverview")
 .First()
 .Children
-.Where(x => x.HasValue("projectStatus") && Umbraco.GetPreValueAsString(x.GetPropertyValue<int>("projectStatus")) == "Completed")
-.OrderBy("CreateDate desc").Take(numOfProjects).ToArray(); }
+.OrderBy("CreateDate desc").ToArray(); 
+}
 
-<ul>
+<ul class="nav-dropdown-children">
         @foreach(IPublishedContent page in latestProjects) 
         {
             <li>
