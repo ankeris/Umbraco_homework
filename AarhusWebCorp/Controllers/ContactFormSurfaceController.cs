@@ -16,7 +16,7 @@ namespace AarhusWebCorp.Controllers
         public ActionResult Index()
         {
             return PartialView("ContactForm", new ContactForm());
-        }
+     }
 
         [HttpPost]
         public ActionResult HandleFormSubmit(ContactForm model)
