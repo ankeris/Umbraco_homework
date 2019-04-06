@@ -1,12 +1,19 @@
 .nav-dropdown {
-	position: relative;
+    position: relative;
 }
-.nav-dropdown:hover > .nav-dropdown-children {
-display: initial;
-}
+
+    .nav-dropdown:hover > .nav-dropdown-children {
+        display: initial;
+    }
+
 .nav-dropdown-children {
-	display: none;
-	position: absolute;
-	background: #D3D3D3;
-	width: 200px;
+    display: none;
+    z-index: 10;
+    position: absolute;
+    background: #f8f9fa;
+    width: 200px;
+}
+
+.current {
+    font-weight: bold;
 }

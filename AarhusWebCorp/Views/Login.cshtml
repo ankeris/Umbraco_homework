@@ -1,11 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Login>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
-@{
-	Layout = "Master.cshtml";
-}
-@if(!Members.GetCurrentLoginStatus().IsLoggedIn) {
+    @using ContentModels = Umbraco.Web.PublishedContentModels;
+    @{
+    Layout = "Master.cshtml";
+    }
+
     @Html.Partial("login")
-} else 
-{
-    <p>You are currently logged in as @Members.GetCurrentLoginStatus().Name</p>
-}
+
