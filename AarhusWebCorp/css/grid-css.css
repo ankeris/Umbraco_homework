@@ -2,3 +2,25 @@
     width: 100%;
     padding: 50px 0px;
 }
+
+.grid-box {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	list-style: none;
+}
+
+.grid-box__item {
+	flex-basis: 25%;
+	margin: 30px;
+}
+
+.square-link {
+	max-width: 200px;
+	text-align:center;
+	height: 100%;
+	padding: 15px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

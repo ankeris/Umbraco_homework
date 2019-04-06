@@ -4,7 +4,7 @@
 	Layout = "Master.cshtml";
 }
 
-<h4 class="p-2 bg-secondary text-light">@Umbraco.Field("projectsTitle")</h4>
+<h3 class="p-2 bg-dark text-light">@Umbraco.Field("projectsTitle")</h3>
 <div>@Umbraco.Field("projectsBodyText")</div>
 
-@Umbraco.RenderMacro("listNewestProjects", new {numOfProjects="3"})
+@Umbraco.RenderMacro("listNewestProjects", new {numOfProjects="10"})

@@ -12,11 +12,11 @@ Model.Content.AncestorOrSelf(1)
 .Where(x => x.HasValue("projectStatus") && Umbraco.GetPreValueAsString(x.GetPropertyValue<int>("projectStatus")) == "Completed")
 .OrderBy("CreateDate desc").Take(numOfProjects).ToArray(); }
 
-<ul>
+<ul class="grid-box">
         @foreach(IPublishedContent page in latestProjects) 
         {
-            <li>
-                <a class="nav-link" href="@page.Url">@page.Name</a>
+            <li class="grid-box__item">
+                <a class="nav-link square-link bg-light text-dark border border-dark rounded" href="@page.Url">@page.Name</a>
             </li>
         }
 </ul>
