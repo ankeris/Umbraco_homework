@@ -1,12 +1,13 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.HomePage>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
-@{
-	Layout = "Master.cshtml";
-}
+    @using ContentModels = Umbraco.Web.PublishedContentModels;
+    @{
+    Layout = "Master.cshtml";
+    }
 
-<h3 class="p-2 bg-secondary text-light">@Umbraco.Field("header")</h3>
-<div>@Umbraco.Field("mainContent")</div>
+    <h3 class="text-light bg-dark p-4 text-light">@Umbraco.Field("header")</h3>
+    <div>@Umbraco.Field("mainContent")</div>
 
-@Umbraco.RenderMacro("projectsSubMenu")
+    @Umbraco.RenderMacro("projectsSubMenu")
 
-@Umbraco.RenderMacro("listNewestProjects", new {numOfProjects="3"})
+    <h2 class="text-light bg-dark p-4">Our latest projects:</h2>
+    @Umbraco.RenderMacro("listNewestProjects", new {numOfProjects="3"})
